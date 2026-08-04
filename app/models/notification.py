@@ -1,5 +1,5 @@
 from sqlalchemy import String, Text, DateTime, Boolean, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from datetime import datetime
 
@@ -28,11 +28,16 @@ class Notification(Base):
         Text,
     )
 
-    notify_time: Mapped[str] = mapped_column(
+    notify_time: Mapped[datetime] = mapped_column(
         DateTime,
     )
 
     read: Mapped[bool] = mapped_column(
         Boolean,
         default=False,
+    )
+
+    fridge_item = relationship(
+        "fridgeItem",
+        back_populates=
     )
