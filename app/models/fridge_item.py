@@ -31,7 +31,7 @@ class FridgeItem(Base):
 
     deadline: Mapped[datetime | None] = mapped_column(
         DateTime,
-        nullable=True,
+        nullable=False,
     )
 
     starred: Mapped[bool] = mapped_column(
